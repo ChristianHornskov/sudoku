@@ -1,6 +1,7 @@
 import json
 from playwright.sync_api import sync_playwright
-URL='http://127.0.0.1:8765/index.html'
+import os
+URL=os.environ.get('URL','http://127.0.0.1:8765/index.html')
 with sync_playwright() as p:
     b=p.chromium.launch(channel='chrome',args=['--no-sandbox'])
     c=b.new_context(viewport={'width':390,'height':844},is_mobile=True,has_touch=True)
