@@ -1,0 +1,8 @@
+OK   iphone-15-390x844 plade=370px tal-knap=65x96 []
+OK   iphone-se-375x667 plade=349px tal-knap=62x71 []
+OK   android-360x740 plade=340px tal-knap=59x96 []
+OK   android-412x915 plade=392px tal-knap=69x96 []
+OK   iphone-mini-landscape-844x390 plade=320px tal-knap=67x81 []
+OK   ipad-768x1024 plade=560px tal-knap=104x96 []
+OK   desktop-1280x800 plade=640px tal-knap=64x77 []
+layoutfejl: 0

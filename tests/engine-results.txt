@@ -1,0 +1,63 @@
+{
+ "easy": {
+  "ramteNiveau": "40/40",
+  "gnsMs": 1,
+  "maxMs": 5,
+  "teknikker": {
+   "nakedSingle": 1779,
+   "hiddenSingle": 21
+  }
+ },
+ "medium": {
+  "ramteNiveau": "40/40",
+  "gnsMs": 16,
+  "maxMs": 54,
+  "teknikker": {
+   "nakedSingle": 1552,
+   "hiddenSingle": 488,
+   "nakedPair": 37,
+   "pointing": 42,
+   "boxLine": 3
+  }
+ },
+ "hard": {
+  "ramteNiveau": "40/40",
+  "gnsMs": 80,
+  "maxMs": 337,
+  "teknikker": {
+   "nakedSingle": 1688,
+   "hiddenSingle": 507,
+   "nakedPair": 26,
+   "boxLine": 23,
+   "hiddenPair": 44,
+   "xwing": 3,
+   "pointing": 93,
+   "hiddenTriple": 2,
+   "nakedTriple": 3
+  }
+ },
+ "expert": {
+  "ramteNiveau": "40/40",
+  "gnsMs": 55,
+  "maxMs": 192,
+  "teknikker": {
+   "nakedSingle": 1665,
+   "hiddenSingle": 588,
+   "boxLine": 22,
+   "xyzWing": 7,
+   "pointing": 82,
+   "xyWing": 36,
+   "hiddenPair": 23,
+   "hiddenTriple": 7,
+   "nakedPair": 35,
+   "hiddenQuad": 1,
+   "xwing": 6,
+   "nakedTriple": 2,
+   "swordfish": 1
+  }
+ }
+}
+X-Wing-eks løsninger: 1 brugte xwing: true færdig: true
+Fuzz-stillinger: 300 fundne teknikker (første fund pr. stilling): {"pointing":139,"boxLine":149,"hiddenPair":112,"nakedPair":51,"nakedTriple":68,"hiddenTriple":88,"hiddenQuad":60,"xyzWing":48,"xwing":66,"swordfish":46,"nakedQuad":57,"xyWing":26}
+ALT OK
+done 0

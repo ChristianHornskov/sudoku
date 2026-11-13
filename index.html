@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="da">
+<head>
+<meta charset="utf-8">
+<title>Sudoku</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Rolig sudoku med hjælp, der forklarer hvorfor.">
+<meta name="theme-color" content="#F4F2EE" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#11141F" media="(prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Sudoku">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-undo" viewBox="0 0 24 24"><path d="M9 14 4 9l5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 9h10.5a5.5 5.5 0 0 1 0 11H11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-pencil" viewBox="0 0 24 24"><path d="M4 20l1-4.2L16.6 4.2a2 2 0 0 1 2.8 0l.4.4a2 2 0 0 1 0 2.8L8.2 19 4 20z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M14.5 6.3l3.2 3.2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-bulb" viewBox="0 0 24 24"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.6 10.8c.7.6 1.1 1.4 1.1 2.2h5c0-.8.4-1.6 1.1-2.2A6 6 0 0 0 12 3z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-notes" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="3.5" fill="none" stroke="currentColor" stroke-width="2"/><g fill="currentColor"><circle cx="8.5" cy="8.5" r="1.3"/><circle cx="12" cy="8.5" r="1.3"/><circle cx="15.5" cy="8.5" r="1.3"/><circle cx="8.5" cy="12" r="1.3"/><circle cx="12" cy="12" r="1.3"/><circle cx="15.5" cy="12" r="1.3"/><circle cx="8.5" cy="15.5" r="1.3"/><circle cx="12" cy="15.5" r="1.3"/><circle cx="15.5" cy="15.5" r="1.3"/></g></symbol>
+    <symbol id="i-erase" viewBox="0 0 24 24"><path d="M20 20H9.5L4 14.5a2 2 0 0 1 0-2.8l7.7-7.7a2 2 0 0 1 2.8 0l5.5 5.5a2 2 0 0 1 0 2.8L12.5 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.5 9.5l7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 2.8l1.5 2.2 2.6-.6.8 2.5 2.5.8-.6 2.6 2.2 1.5-2.2 1.5.6 2.6-2.5.8-.8 2.5-2.6-.6L12 21.2 10.5 19l-2.6.6-.8-2.5-2.5-.8.6-2.6L3 12l2.2-1.5-.6-2.6 2.5-.8.8-2.5 2.6.6z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+    <symbol id="i-pause" viewBox="0 0 24 24"><rect x="6" y="5" width="4" height="14" rx="1.2" fill="currentColor"/><rect x="14" y="5" width="4" height="14" rx="1.2" fill="currentColor"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="currentColor" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></symbol>
+  </defs>
+</svg>
+
+<div id="app">
+  <header class="top">
+    <button id="btnNew" class="pill" type="button"><svg class="ic"><use href="#i-plus"/></svg><span>Nyt spil</span></button>
+    <div class="meta">
+      <div id="levelLabel" class="level">Let</div>
+      <button id="btnTimer" class="timer" type="button" aria-label="Pause"><svg class="ic sm"><use href="#i-pause"/></svg><span id="timerText">00:00</span></button>
+    </div>
+    <button id="btnSettings" class="round" type="button" aria-label="Indstillinger"><svg class="ic"><use href="#i-gear"/></svg></button>
+  </header>
+
+  <main class="stage">
+    <div class="board-wrap">
+      <div id="board" role="grid" aria-label="Sudoku-plade"></div>
+      <button id="pauseCover" class="pause-cover" type="button" hidden>
+        <svg class="ic xl"><use href="#i-play"/></svg>
+        <span>Pause</span><small>Tryk for at fortsætte</small>
+      </button>
+    </div>
+
+    <section class="panel">
+      <div id="controls" class="controls">
+        <div class="actions">
+          <button id="btnUndo" class="act" type="button"><svg class="ic"><use href="#i-undo"/></svg><span>Fortryd</span></button>
+          <button id="btnPencil" class="act toggle" type="button" aria-pressed="false"><svg class="ic"><use href="#i-pencil"/></svg><span>Blyant</span><b class="badge" id="pencilBadge">FRA</b></button>
+          <button id="btnHint" class="act hint" type="button"><svg class="ic"><use href="#i-bulb"/></svg><span>Hint</span></button>
+          <button id="btnAuto" class="act" type="button"><svg class="ic"><use href="#i-notes"/></svg><span>Auto-notat</span></button>
+        </div>
+        <div id="pad" class="pad"></div>
+      </div>
+
+      <div id="hintCard" class="hint-card" hidden>
+        <div class="hint-head">
+          <svg class="ic"><use href="#i-bulb"/></svg>
+          <span id="hintTag" class="tag"></span>
+          <span id="hintStep" class="step"></span>
+        </div>
+        <p id="hintText" class="hint-text"></p>
+        <p id="hintLegend" class="legend" hidden>R3K5 betyder række 3, kolonne 5.</p>
+        <div class="hint-actions">
+          <button id="hintClose" class="btn ghost" type="button">Luk</button>
+          <button id="hintMore" class="btn primary" type="button">Vis mere</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <div id="loading" class="loading" hidden><div class="spinner"></div><span>Laver en ny gåde …</span></div>
+
+  <div id="modal" class="modal" hidden>
+    <div class="backdrop" data-close></div>
+    <div id="sheet" class="sheet" role="dialog" aria-modal="true"></div>
+  </div>
+</div>
+
+<script src="engine.js"></script>
+<script src="hints.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

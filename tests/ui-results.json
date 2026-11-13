@@ -1,0 +1,248 @@
+[
+ [
+  "Valg af felt giver .sel",
+  true,
+  ""
+ ],
+ [
+  "Række/kolonne/boks fremhæves (.peer)",
+  true,
+  20
+ ],
+ [
+  "Rigtigt tal sættes",
+  true,
+  ""
+ ],
+ [
+  "Undo-knap aktiv efter træk",
+  true,
+  ""
+ ],
+ [
+  "Fortryd fjerner tallet",
+  true,
+  ""
+ ],
+ [
+  "Forkert tal markeres rødt (.err)",
+  true,
+  ""
+ ],
+ [
+  "Fejlmarkering kan slås fra",
+  true,
+  ""
+ ],
+ [
+  "Viskelæder fjerner tal",
+  true,
+  ""
+ ],
+ [
+  "Blyant-knap viser TIL",
+  true,
+  ""
+ ],
+ [
+  "Flere notater i samme felt (1 og 2)",
+  true,
+  [
+   "1",
+   "2"
+  ]
+ ],
+ [
+  "Notat kan slås fra igen",
+  true,
+  [
+   "2"
+  ]
+ ],
+ [
+  "Auto-notat udfylder, og rigtigt tal fjerner notat i peers",
+  true,
+  [
+   1,
+   0
+  ]
+ ],
+ [
+  "Samme tal fremhæves",
+  true,
+  2
+ ],
+ [
+  "Nøgen enkelt: hint-kort vises (nudge)",
+  true,
+  ""
+ ],
+ [
+  "Nøgen enkelt: trin 2 forklarer",
+  true,
+  "Nøgen enkelt"
+ ],
+ [
+  "Hint \"Sæt tallet ind\" sætter tal",
+  true,
+  ""
+ ],
+ [
+  "Hint-sat tal er rigtigt",
+  true,
+  ""
+ ],
+ [
+  "Skjult enkelt: hint-kort vises (nudge)",
+  true,
+  ""
+ ],
+ [
+  "Skjult enkelt: trin 2 forklarer",
+  true,
+  "Skjult enkelt"
+ ],
+ [
+  "Nøgent par: hint-kort vises (nudge)",
+  true,
+  ""
+ ],
+ [
+  "Nøgent par: trin 2 forklarer",
+  true,
+  "Nøgent par"
+ ],
+ [
+  "Nøgent par: kandidater fjernet i notater",
+  true,
+  ""
+ ],
+ [
+  "Pegende par: hint-kort vises (nudge)",
+  true,
+  ""
+ ],
+ [
+  "Pegende par: trin 2 forklarer",
+  true,
+  "Pegende par"
+ ],
+ [
+  "Boks/linje: hint-kort vises (nudge)",
+  true,
+  ""
+ ],
+ [
+  "Boks/linje: trin 2 forklarer",
+  true,
+  "Boks/linje-reduktion"
+ ],
+ [
+  "Skjult par: hint-kort vises (nudge)",
+  true,
+  ""
+ ],
+ [
+  "Skjult par: trin 2 forklarer",
+  true,
+  "Skjult par"
+ ],
+ [
+  "X-Wing: hint-kort vises (nudge)",
+  true,
+  ""
+ ],
+ [
+  "X-Wing: trin 2 forklarer",
+  true,
+  "X-Wing"
+ ],
+ [
+  "XY-Wing: hint-kort vises (nudge)",
+  true,
+  ""
+ ],
+ [
+  "XY-Wing: trin 2 forklarer",
+  true,
+  "XY-Wing"
+ ],
+ [
+  "XYZ-Wing: hint-kort vises (nudge)",
+  true,
+  ""
+ ],
+ [
+  "XYZ-Wing: trin 2 forklarer",
+  true,
+  "XYZ-Wing"
+ ],
+ [
+  "Luk skjuler hint-kortet",
+  true,
+  ""
+ ],
+ [
+  "Hint melder fejl på pladen",
+  true,
+  "Fejl på pladen"
+ ],
+ [
+  "Fejl-hint fjerner det forkerte tal",
+  true,
+  ""
+ ],
+ [
+  "Spillet gemmes og genoptages efter genindlæsning",
+  true,
+  ""
+ ],
+ [
+  "Timer tæller",
+  true,
+  [
+   19,
+   21
+  ]
+ ],
+ [
+  "Pause skjuler pladen",
+  true,
+  ""
+ ],
+ [
+  "Tryk genoptager",
+  true,
+  ""
+ ],
+ [
+  "Nyt spil via UI: easy",
+  true,
+  "givne=36, løsninger=1"
+ ],
+ [
+  "Nyt spil via UI: medium",
+  true,
+  "givne=30, løsninger=1"
+ ],
+ [
+  "Nyt spil via UI: hard",
+  true,
+  "givne=26, løsninger=1"
+ ],
+ [
+  "Nyt spil via UI: expert",
+  true,
+  "givne=26, løsninger=1"
+ ],
+ [
+  "Gevinstskærm vises ved løst gåde",
+  true,
+  ""
+ ],
+ [
+  "Ingen JS-fejl",
+  true,
+  []
+ ]
+]
