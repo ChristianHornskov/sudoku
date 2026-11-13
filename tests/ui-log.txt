@@ -12,47 +12,47 @@ OK   Notat kan slås fra igen — ['2']
 OK   Auto-notat udfylder, og rigtigt tal fjerner notat i peers — (1, 0)
 OK   Samme tal fremhæves — 2
 OK   Nøgen enkelt: hint-kort vises (nudge)
-OK   Nøgen enkelt: trin 2 forklarer — Nøgen enkelt
-    Nøgen enkelt | Feltet i række 1, kolonne 3 kan kun rumme tallet 2. Alle de andre tal er udelukket: 5, 6, 7 og 8 står i rækken, 1, 3 og 4 i kolonnen og 9 i boksen. Derfor må der stå 2 i feltet.
+OK   Nøgen enkelt: trin 2 forklarer — Kun én mulighed
+    Kun én mulighed | I feltet i række 1, kolonne 3 kan kun 2 stå. Rækken har allerede 5, 6, 7 og 8, kolonnen har desuden 1, 3 og 4, og boksen har desuden 9 – så alle andre tal er udelukket.
 OK   Hint "Sæt tallet ind" sætter tal
 OK   Hint-sat tal er rigtigt
 OK   Skjult enkelt: hint-kort vises (nudge)
-OK   Skjult enkelt: trin 2 forklarer — Skjult enkelt
-    Skjult enkelt | I den øverste venstre boks skal tallet 9 stå et sted. I alle de andre tomme felter i den øverste venstre boks er 9 udelukket, fordi 9 allerede står i deres række, kolonne eller boks. Kun feltet i række 3, kolonne 2 er tilbage, så 
+OK   Skjult enkelt: trin 2 forklarer — Eneste plads
+    Eneste plads | Tallet 9 skal stå et sted i den øverste venstre boks. I alle de andre tomme felter dér er 9 spærret, fordi det allerede står i feltets række eller kolonne. Kun feltet i række 3, kolonne 2 er ledigt – så 9 må stå dér.
 OK   Nøgent par: hint-kort vises (nudge)
-OK   Nøgent par: trin 2 forklarer — Nøgent par
-    Nøgent par | I kolonne 2 har felterne R1K2 og R3K2 tilsammen kun kandidaterne 1 og 6. To felter og to tal: De to tal skal stå i netop de felter (ét i hvert), så ingen andre felter i kolonne 2 kan have dem. Derfor kan du fjerne kandidaterne: R4
+OK   Nøgent par: trin 2 forklarer — Låst par (nøgent par)
+    Låst par (nøgent par) | Felterne i række 1 og 3 i kolonne 2 kan tilsammen kun være 1 eller 6. De to tal skal derfor bruges i netop disse to felter, og så kan ingen andre felter i kolonne 2 være 1 eller 6. Fjern 6 fra felterne i række 4, 5, 6 og 7 i kolon
 OK   Nøgent par: kandidater fjernet i notater
 OK   Pegende par: hint-kort vises (nudge)
-OK   Pegende par: trin 2 forklarer — Pegende par
-    Pegende par | I den nederste højre boks kan tallet 8 kun stå i R9K7 og R9K9 – og de ligger alle i række 9. 8 skal stå et sted i boksen, så det står helt sikkert i række 9. Derfor kan 8 ikke stå i resten af række 9 uden for boksen. Fjern 8 fra: 
+OK   Pegende par: trin 2 forklarer — Boksen peger ud (pointing pair)
+    Boksen peger ud (pointing pair) | I den nederste højre boks kan 8 kun stå i række 9 (felterne i kolonne 7 og 9). Boksen skal have et 8, så det står helt sikkert i række 9 – og så kan 8 ikke stå andre steder i den række. Fjern 8 fra felterne i kolonne 4 og 6 i rækk
 OK   Boks/linje: hint-kort vises (nudge)
-OK   Boks/linje: trin 2 forklarer — Boks/linje-reduktion
-    Boks/linje-reduktion | I række 3 kan tallet 4 kun stå i R3K2 og R3K3 – og de ligger alle i den øverste venstre boks. Så 4 for række 3 står helt sikkert i den boks. Derfor kan boksens andre felter ikke indeholde 4. Fjern 4 fra: R1K2, R1K3, R2K1 og R2K2.
+OK   Boks/linje: trin 2 forklarer — Linjen peger ind (box/line)
+    Linjen peger ind (box/line) | I række 3 kan 4 kun stå i kolonne 2 og 3, og de to felter ligger begge i den øverste venstre boks. Rækken skal have et 4, så det står helt sikkert i den boks – og så kan boksens øvrige felter ikke være 4. Fjern 4 fra felterne i ræ
 OK   Skjult par: hint-kort vises (nudge)
 OK   Skjult par: trin 2 forklarer — Skjult par
-    Skjult par | I kolonne 5 kan tallene 4 og 6 kun stå i felterne R4K5 og R5K5. Det er to tal på to felter, så felterne skal bruges til netop de tal. Alle andre kandidater i de felter er derfor overflødige og kan fjernes: R4K5 (2 og 5) og R5K5 (2
+    Skjult par | I kolonne 5 kan 4 og 6 kun stå i række 4 og 5. Det er to tal på to felter, så felterne må bruges til netop de tal. Alle andre mulige tal i de felter er derfor overflødige. Fjern 2 og 5 fra feltet i række 4, kolonne 5 samt 2 og 9 f
 OK   X-Wing: hint-kort vises (nudge)
-OK   X-Wing: trin 2 forklarer — X-Wing
-    X-Wing | Se på tallet 5. I kolonne 2 og kolonne 8 kan 5 kun stå i række 1 og række 6 (felterne R1K2, R6K2, R1K8 og R6K8). Hver af de to kolonner skal have ét 5, og der er kun to rækker at placere dem i – så de bliver "brugt op". Fire felte
+OK   X-Wing: trin 2 forklarer — Rektangel (X-Wing)
+    Rektangel (X-Wing) | Se kun på tallet 5. I kolonnerne 2 og 8 kan det kun stå i rækkerne 1 og 6. Hver af de to kolonner skal have et 5, og kun de to rækker er mulige – så de får deres 5 fra netop disse kolonner. De fire felter er hjørnerne i et rektang
 OK   XY-Wing: hint-kort vises (nudge)
-OK   XY-Wing: trin 2 forklarer — XY-Wing
-    XY-Wing | Feltet R5K5 (pivot) har kun kandidaterne 6 og 7. R4K4 har 6 og 1, og R5K7 har 7 og 1. Er pivoten 6, må R4K4 være 1. Er pivoten 7, må R5K7 være 1. Så 1 står i ét af de to felter, uanset hvad. Felter, der ser både R4K4 og R5K7, kan 
+OK   XY-Wing: trin 2 forklarer — Kæde med tre felter (XY-Wing)
+    Kæde med tre felter (XY-Wing) | Midterfeltet (række 5, kolonne 5) kan kun være 6 eller 7. Sidefelt 1 (række 4, kolonne 4) kan være 6 eller 1, og sidefelt 2 (række 5, kolonne 7) kan være 7 eller 1. Er midterfeltet 6, må sidefelt 1 være 1. Er det 7, må sidefelt 2 
 OK   XYZ-Wing: hint-kort vises (nudge)
-OK   XYZ-Wing: trin 2 forklarer — XYZ-Wing
-    XYZ-Wing | Feltet R6K9 (pivot) har kandidaterne 4, 7 og 8. R3K9 har 7 og 4, og R6K8 har 8 og 4. Er pivoten 4, står 4 dér. Er den 7, må R3K9 være 4. Er den 8, må R6K8 være 4. Så 4 står i ét af de tre felter, uanset hvad. Felter, der ser alle 
+OK   XYZ-Wing: trin 2 forklarer — Kæde med tre tal (XYZ-Wing)
+    Kæde med tre tal (XYZ-Wing) | Midterfeltet (række 6, kolonne 9) kan være 4, 7 eller 8. Sidefelt 1 (række 3, kolonne 9) kan være 7 eller 4, og sidefelt 2 (række 6, kolonne 8) kan være 8 eller 4. Er midterfeltet 4, står 4 dér. Er det 7, må sidefelt 1 være 4. Er 
 OK   Luk skjuler hint-kortet
-OK   Hint melder fejl på pladen — Fejl på pladen
-    Tallet 2 i feltet række 1, kolonne 2 er forkert. Det bryder ikke umiddelbart en regel, men gåden har kun én løsning, og den passer ikke med 2 her – det ville føre til en modstrid senere. Fjern tallet, så kan du komme videre.
+OK   Hint melder fejl — Der er en fejl
+    Tallet 2 i feltet i række 1, kolonne 2 er forkert. Det strider ikke direkte mod et andet tal, men det passer ikke med gådens eneste løsning og ville give problemer senere. Fjern det, så kan du komme videre.
 OK   Fejl-hint fjerner det forkerte tal
 OK   Spillet gemmes og genoptages efter genindlæsning
-OK   Timer tæller — (19, 21)
+OK   Timer tæller — (18, 20)
 OK   Pause skjuler pladen
 OK   Tryk genoptager
 OK   Nyt spil via UI: easy — givne=36, løsninger=1
 OK   Nyt spil via UI: medium — givne=30, løsninger=1
 OK   Nyt spil via UI: hard — givne=26, løsninger=1
-OK   Nyt spil via UI: expert — givne=26, løsninger=1
+OK   Nyt spil via UI: expert — givne=27, løsninger=1
 OK   Gevinstskærm vises ved løst gåde
 OK   Ingen JS-fejl
 FEJL i alt: 0 af 47

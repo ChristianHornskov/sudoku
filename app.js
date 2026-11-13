@@ -5,10 +5,10 @@
   var $ = function (s) { return document.querySelector(s); };
 
   var LEVELS = [
-    { id: 'easy', name: 'Let', dots: 1, desc: 'Kun de enkle teknikker: nøgne og skjulte enkelte.' },
-    { id: 'medium', name: 'Mellem', dots: 2, desc: 'Kræver også nøgne par, pegende par og boks/linje-reduktion.' },
-    { id: 'hard', name: 'Svær', dots: 3, desc: 'Skjulte par, tripler og X-Wing.' },
-    { id: 'expert', name: 'Ekspert', dots: 4, desc: 'XY-Wing, XYZ-Wing, Swordfish og firere.' }
+    { id: 'easy', name: 'Let', dots: 1, desc: 'Kun de enkleste regler: Kun én mulighed og Eneste plads.' },
+    { id: 'medium', name: 'Mellem', dots: 2, desc: 'Kræver også låste par og mønstre, hvor en boks peger på en linje.' },
+    { id: 'hard', name: 'Svær', dots: 3, desc: 'Skjulte par, trioer og rektangler (X-Wing).' },
+    { id: 'expert', name: 'Ekspert', dots: 4, desc: 'Kæder (XY-Wing), Swordfish og firere.' }
   ];
   var LEVEL_NAME = {}; LEVELS.forEach(function (l) { LEVEL_NAME[l.id] = l.name; });
 
@@ -117,7 +117,7 @@
       if (!v && stage2 && target[i] && desc.place) { shown = String(desc.place.digit); ghost = true; }
       if (valEl.textContent !== shown) valEl.textContent = shown;
       valEl.className = 'val' + (ghost ? ' ghost' : '');
-      el.setAttribute('aria-label', 'Række ' + (E.ROW(i) + 1) + ', kolonne ' + (E.COL(i) + 1) + (v ? ', tallet ' + v : ', tom'));
+      el.setAttribute('aria-label', 'Række ' + (E.ROW(i) + 1) + ', kolonne ' + (E.COL(i) + 1) + (v ? ', tallet ' + v : ', tomt felt'));
       var nm = noteMaskFor(i, basic, hintCells);
       var ns = el.lastChild.children;
       for (var d = 1; d <= 9; d++) {
@@ -177,9 +177,9 @@
     if (G.done || paused) return;
     var i = G.sel;
     if (i < 0) { toast('Vælg først et felt'); return; }
-    if (isGiven(i)) { toast('Det tal er givet'); flash(i, 'shake'); return; }
+    if (isGiven(i)) { toast('Det tal kan ikke ændres'); flash(i, 'shake'); return; }
     if (G.pencil) {
-      if (G.vals[i]) { toast('Feltet har allerede et tal. Slet det først.'); return; }
+      if (G.vals[i]) { toast('Der står allerede et tal her. Slet det først.'); return; }
       pushUndo(); G.notes[i] ^= BIT[d]; afterChange(); return;
     }
     if (G.vals[i] === d) { pushUndo(); G.vals[i] = 0; afterChange(); return; }
@@ -189,7 +189,7 @@
     if (G.done || paused) return;
     var i = G.sel;
     if (i < 0) { toast('Vælg først et felt'); return; }
-    if (isGiven(i)) { toast('Det tal er givet'); return; }
+    if (isGiven(i)) { toast('Det tal kan ikke ændres'); return; }
     if (!G.vals[i] && !G.notes[i]) return;
     pushUndo(); G.vals[i] = 0; G.notes[i] = 0; afterChange();
   }
@@ -237,10 +237,9 @@
     var d = HS.desc;
     $('#controls').hidden = true; hintCard().hidden = false;
     $('#hintTag').textContent = d.tag;
-    $('#hintStep').textContent = 'Trin ' + HS.stage + ' af 2';
+    $('#hintStep').textContent = 'Vink ' + HS.stage + ' af 2';
     $('#hintText').textContent = HS.stage === 1 ? d.nudge : d.text;
-    $('#hintLegend').hidden = !/R\dK\d/.test($('#hintText').textContent);
-    $('#hintMore').textContent = HS.stage === 1 ? 'Vis mere' : d.applyLabel;
+    $('#hintMore').textContent = HS.stage === 1 ? 'Forklar hvorfor' : d.applyLabel;
     hintCard().scrollTop = 0;
     render();
   }
@@ -274,7 +273,7 @@
     boardEl.parentNode.classList.add('win-anim');
     cells.forEach(function (el, i) { el.style.setProperty('--d', (E.ROW(i) + E.COL(i))); });
     setTimeout(function () {
-      openSheet('<div class="win"><div class="win-emoji">🎉</div><h2>Flot klaret!</h2><p class="lead">Gåden er løst.</p>' +
+      openSheet('<div class="win"><div class="win-emoji">🎉</div><h2>Flot klaret!</h2><p class="lead">Du har løst gåden.</p>' +
         '<div class="stats"><div><b>' + fmt(G.seconds) + '</b><span>Tid</span></div><div><b>' + LEVEL_NAME[G.level] + '</b><span>Sværhedsgrad</span></div>' +
         '<div><b>' + G.hints + '</b><span>Hint brugt</span></div><div><b>' + G.mistakes + '</b><span>Fejl</span></div></div>' +
         '<div class="btns"><button class="btn ghost" data-close type="button">Se pladen</button><button class="btn primary" data-newlevel type="button">Nyt spil</button></div></div>', 'win');
@@ -321,7 +320,7 @@
   function closeSheet() { $('#modal').hidden = true; }
   function openNew() {
     var last = load(KEY_L, 'easy');
-    var h = '<h2>Nyt spil</h2><p class="lead">' + (G && !G.done ? 'Det nuværende spil bliver afbrudt.' : 'Vælg sværhedsgrad. Gåderne har altid kun én løsning.') + '</p>';
+    var h = '<h2>Nyt spil</h2><p class="lead">' + (G && !G.done ? 'Dit nuværende spil afsluttes.' : 'Vælg en sværhedsgrad. Hver gåde har kun én løsning.') + '</p>';
     LEVELS.forEach(function (l) {
       h += '<button class="lv' + (l.id === last ? ' cur' : '') + '" data-level="' + l.id + '" type="button"><div class="dots">' +
         [1, 2, 3, 4].map(function (n) { return '<i class="' + (n <= l.dots ? 'on' : '') + '"></i>'; }).join('') + '</div><div><b>' + l.name + '</b><span>' + l.desc + '</span></div></button>';
@@ -335,13 +334,13 @@
     }
     var h = '<h2>Indstillinger</h2>' +
       row('showErrors', 'Vis fejl med det samme', 'Forkerte tal bliver røde.') +
-      row('autoRemove', 'Fjern notater automatisk', 'Når du sætter et tal, forsvinder det fra notaterne i rækken, kolonnen og boksen.') +
-      row('hlSame', 'Fremhæv samme tal') + row('hlPeers', 'Fremhæv række, kolonne og boks') + row('showTimer', 'Vis tid') +
+      row('autoRemove', 'Fjern notater automatisk', 'Når du sætter et tal, fjernes det fra notaterne i samme række, kolonne og boks.') +
+      row('hlSame', 'Fremhæv ens tal') + row('hlPeers', 'Fremhæv række, kolonne og boks') + row('showTimer', 'Vis tid') +
       '<div class="row"><div>Udseende</div><div class="seg">' +
       [['auto', 'Auto'], ['light', 'Lys'], ['dark', 'Mørk']].map(function (t) { return '<button type="button" data-theme="' + t[0] + '" aria-pressed="' + (settings.theme === t[0]) + '">' + t[1] + '</button>'; }).join('') + '</div></div>' +
-      '<details><summary>Sådan spiller du</summary><p><b>Tal:</b> Tryk på et felt og derefter på et tal. <b>Blyant</b> skifter til små notater, så du kan skrive flere mulige tal i samme felt (fx både 1 og 2). Tryk på samme tal igen for at fjerne det.</p><p><b>Hint:</b> Første tryk giver et vink om, hvor du skal kigge. Næste tryk forklarer hvorfor, og så kan du lade appen sætte tallet ind.</p></details>' +
-      '<details><summary>Læg appen på hjemmeskærmen</summary><p><b>iPhone (Safari):</b></p><ol><li>Åbn linket i Safari.</li><li>Tryk på Del-knappen (firkant med pil op).</li><li>Vælg “Føj til hjemmeskærm”, og tryk “Tilføj”.</li></ol>' +
-      '<p><b>Android (Chrome):</b></p><ol><li>Åbn linket i Chrome.</li><li>Tryk på menuen (tre prikker).</li><li>Vælg “Installer app” eller “Føj til startskærm”.</li></ol><p>Bagefter virker appen også uden internet.</p>' +
+      '<details><summary>Sådan spiller du</summary><p><b>Tal:</b> Tryk på et felt og derefter på et tal. Tryk på <b>Blyant</b> for at skrive små notater – så kan du have flere mulige tal i samme felt, fx både 1 og 2. Tryk på det samme tal igen for at fjerne det.</p><p><b>Hint:</b> Første tryk giver et vink om, hvor du skal kigge. Næste tryk forklarer hvorfor, og så kan appen sætte tallet ind for dig.</p></details>' +
+      '<details><summary>Læg appen på hjemmeskærmen</summary><p><b>iPhone (Safari):</b></p><ol><li>Åbn linket i Safari.</li><li>Tryk på Del-knappen (firkant med pil op).</li><li>Vælg “Føj til hjemmeskærm”, og tryk på “Tilføj”.</li></ol>' +
+      '<p><b>Android (Chrome):</b></p><ol><li>Åbn linket i Chrome.</li><li>Tryk på menuen (de tre prikker).</li><li>Vælg “Installer app” eller “Føj til startskærm”.</li></ol><p>Bagefter virker appen også uden internet.</p>' +
       (deferredInstall ? '<button class="btn primary block" data-install type="button">Installer nu</button>' : '') + '</details>' +
       '<div class="btns"><button class="btn primary block" data-close type="button">Færdig</button></div>';
     openSheet(h);

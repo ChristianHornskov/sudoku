@@ -80,7 +80,7 @@
  [
   "Nøgen enkelt: trin 2 forklarer",
   true,
-  "Nøgen enkelt"
+  "Kun én mulighed"
  ],
  [
   "Hint \"Sæt tallet ind\" sætter tal",
@@ -100,7 +100,7 @@
  [
   "Skjult enkelt: trin 2 forklarer",
   true,
-  "Skjult enkelt"
+  "Eneste plads"
  ],
  [
   "Nøgent par: hint-kort vises (nudge)",
@@ -110,7 +110,7 @@
  [
   "Nøgent par: trin 2 forklarer",
   true,
-  "Nøgent par"
+  "Låst par (nøgent par)"
  ],
  [
   "Nøgent par: kandidater fjernet i notater",
@@ -125,7 +125,7 @@
  [
   "Pegende par: trin 2 forklarer",
   true,
-  "Pegende par"
+  "Boksen peger ud (pointing pair)"
  ],
  [
   "Boks/linje: hint-kort vises (nudge)",
@@ -135,7 +135,7 @@
  [
   "Boks/linje: trin 2 forklarer",
   true,
-  "Boks/linje-reduktion"
+  "Linjen peger ind (box/line)"
  ],
  [
   "Skjult par: hint-kort vises (nudge)",
@@ -155,7 +155,7 @@
  [
   "X-Wing: trin 2 forklarer",
   true,
-  "X-Wing"
+  "Rektangel (X-Wing)"
  ],
  [
   "XY-Wing: hint-kort vises (nudge)",
@@ -165,7 +165,7 @@
  [
   "XY-Wing: trin 2 forklarer",
   true,
-  "XY-Wing"
+  "Kæde med tre felter (XY-Wing)"
  ],
  [
   "XYZ-Wing: hint-kort vises (nudge)",
@@ -175,7 +175,7 @@
  [
   "XYZ-Wing: trin 2 forklarer",
   true,
-  "XYZ-Wing"
+  "Kæde med tre tal (XYZ-Wing)"
  ],
  [
   "Luk skjuler hint-kortet",
@@ -183,9 +183,9 @@
   ""
  ],
  [
-  "Hint melder fejl på pladen",
+  "Hint melder fejl",
   true,
-  "Fejl på pladen"
+  "Der er en fejl"
  ],
  [
   "Fejl-hint fjerner det forkerte tal",
@@ -201,8 +201,8 @@
   "Timer tæller",
   true,
   [
-   19,
-   21
+   18,
+   20
   ]
  ],
  [
@@ -233,7 +233,7 @@
  [
   "Nyt spil via UI: expert",
   true,
-  "givne=26, løsninger=1"
+  "givne=27, løsninger=1"
  ],
  [
   "Gevinstskærm vises ved løst gåde",

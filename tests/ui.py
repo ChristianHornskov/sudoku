@@ -85,11 +85,11 @@ with sync_playwright() as p:
         r=pg.evaluate(SETUP,[level,seed,tech,True])
         if r!='ok': check('hint-setup '+tag, False, r); return
         pg.tap('#btnHint')
-        check(f'{tag}: hint-kort vises (nudge)', pg.is_visible('#hintCard') and pg.inner_text('#hintStep')=='Trin 1 af 2')
+        check(f'{tag}: hint-kort vises (nudge)', pg.is_visible('#hintCard') and pg.inner_text('#hintStep')=='Vink 1 af 2')
         t1=pg.inner_text('#hintText'); tg=pg.inner_text('#hintTag')
         shot(pg,f'hint-{fn}-1-nudge')
         pg.tap('#hintMore')
-        check(f'{tag}: trin 2 forklarer', pg.inner_text('#hintStep')=='Trin 2 af 2' and len(pg.inner_text('#hintText'))>len(t1)*0.6, tg)
+        check(f'{tag}: trin 2 forklarer', pg.inner_text('#hintStep')=='Vink 2 af 2' and len(pg.inner_text('#hintText'))>len(t1)*0.6, tg)
         shot(pg,f'hint-{fn}-2-forklaring')
         print('   ', tg, '|', pg.inner_text('#hintText')[:230])
         return pg.inner_text('#hintMore')
@@ -114,7 +114,7 @@ with sync_playwright() as p:
     pg.evaluate(SETUP,['easy',11,None,False])
     ei=pg.evaluate("__sudoku.G.vals.findIndex(v=>!v)"); sv=G(pg,f"G.solution[{ei}]")
     pg.tap(f'.cell[data-i="{ei}"]'); pg.tap(f'#pad button[data-d="{1 if sv!=1 else 2}"]')
-    pg.tap('#btnHint'); t=pg.inner_text('#hintTag'); check('Hint melder fejl på pladen', t=='Fejl på pladen', t)
+    pg.tap('#btnHint'); t=pg.inner_text('#hintTag'); check('Hint melder fejl', t=='Der er en fejl', t)
     pg.tap('#hintMore'); shot(pg,'hint-fejl-2'); print('   ',pg.inner_text('#hintText'))
     pg.tap('#hintMore'); check('Fejl-hint fjerner det forkerte tal', G(pg,f"G.vals[{ei}]")==0)
 
