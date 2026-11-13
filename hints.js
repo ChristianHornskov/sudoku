@@ -100,7 +100,7 @@
       part(rowD, 'rækken'); part(colD, 'kolonnen'); part(boxD, 'boksen');
       if (other.length) parts.push(list(other.map(String)) + ' har du allerede udelukket med et hint');
       var why = parts.length > 1 ? parts.slice(0, -1).join(', ') + ', og ' + parts[parts.length - 1] : parts[0];
-      out.text = 'I ' + fields([c]) + ' kan kun ' + d + ' stå. ' + cap(why) + ' – så alle andre tal er udelukket.';
+      out.text = 'I ' + fields([c]) + ' kan der kun stå ' + d + '. ' + cap(why) + ' – så alle andre tal er udelukket.';
     } else if (t === 'hiddenSingle') {
       u = step.units[0]; c = step.cells[0]; d = step.place.digit;
       out.regionCells = UNITS[u].slice(); out.targetCells = [c]; out.causeCells = [];

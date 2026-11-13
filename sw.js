@@ -1,5 +1,5 @@
 /* Service worker: gør appen offline-klar. Hæv VERSION, når filerne ændres. */
-var VERSION = 'sudoku-v2';
+var VERSION = 'sudoku-v3';
 var FILES = ['./', 'index.html', 'style.css', 'engine.js', 'hints.js', 'app.js', 'worker.js', 'manifest.webmanifest',
   'icons/icon-192.png', 'icons/icon-512.png', 'icons/icon-maskable-512.png', 'icons/apple-touch-icon.png', 'icons/favicon-32.png'];
 
